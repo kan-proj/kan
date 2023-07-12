@@ -1,0 +1,25 @@
+enum Version:byte { Zero = 0, }
+
+table Author {
+  id:uint64;
+  name:string;
+}
+
+table Content {
+  category:string;
+  objects:[uint64];
+  arrows:[uint64];
+}
+
+table Operation {
+  author:Author;
+  content:Content;
+  timestamp:int64;
+}
+
+table ProjectFile {
+  version:Version = Zero;
+  operations:[Operation];
+}
+
+root_type ProjectFile;
